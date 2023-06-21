@@ -1,0 +1,16 @@
+///////////////////////////////////////////////////////////////
+//////////////// FILE ANALYSIS PROCESS CHECKER ////////////////
+///////////////////////////////////////////////////////////////
+
+
+WORKING DIRECTORY: /home/ubuntu/Desktop/New Folder/KLTN/flask-server/static/files
+OUTPUT DIRECTORY: /home/ubuntu/Desktop/New Folder/KLTN/flask-server/reports
+
+
+
+/home/ubuntu/Desktop/New Folder/KLTN/flask-server/static/files/test.apk: FAILED - No folder detected !!!
+
+
+
+Number of file successed: 0 (0%)
+Number of file failed: 1 (100%)

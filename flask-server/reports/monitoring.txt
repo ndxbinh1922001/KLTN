@@ -1,0 +1,46 @@
+Source file: /HOME/UBUNTU/DESKTOP/KLTN/FLASK-SERVER/STATIC/FILES
+Destination file: /HOME/UBUNTU/DESKTOP/KLTN/FLASK-SERVER/REPORTS
+========== PREPROCESSING ===========
+Destination folder found!!!
+>>>>>>>>> FILE LOG CREATED !!!
+>>>>>>>> Create TEMP folder successfully !!!
+============== START EVALUATE ================
+WARNING! This will remove:
+  - all stopped containers
+  - all networks not used by at least one container
+  - all dangling images
+  - all dangling build cache
+
+Are you sure you want to continue? [y/N] Deleted Containers:
+6613e743d8ac888ae0e65948c95fbe3a3a6ec7b38dab68fc789f397e465d7564
+
+Total reclaimed space: 199.3kB
+REMOVING ALL OUTPUT (IF TRUE)...
+PROCESSING WITH ANDROPY ... 
+[32m
+
+>>>> AndroPyTool -- STEP 1: Filtering apks
+[0m
+1 apks found. Processing...
+[32mTOTAL VALID APKS: 1[0m
+[31mTOTAL INVALID APKS: 0[0m
+[32m
+
+>>>> AndroPyTool -- STEP 2: Analysing with VirusTotal
+[0m
+[32mSUCCESS!![0m
+ All reports have been saved in the VT_ANALYSIS folder. APKS are in SAMPLES folder.
+[32m
+
+>>>> AndroPyTool -- STEP 3: Filtering BW and MW
+[0m
+[32m
+
+>>>> AndroPyTool -- STEP 4: Launching FlowDroid
+[0m
+Interrupted
+Interrupted
+Interrupted
+Interrupted
+Interrupted
+============== FINISH EVALUATE ================

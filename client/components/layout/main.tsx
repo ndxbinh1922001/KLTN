@@ -10,7 +10,7 @@ const NavBar = dynamic(() => import("../navbar"), {
 });
 
 export function MainLayout({ children }: LayoutProps) {
-  const { isPopup, isLoading, result } = useSelector(
+  const { isPopup, isLoading, result, fileContent } = useSelector(
     (state: RootState) => state.toggle
   );
   useEffect(() => {
@@ -22,7 +22,13 @@ export function MainLayout({ children }: LayoutProps) {
         <NavBar />
       </div>
       <div>{children}</div>
-      {isPopup && <Popup result={result} isLoading={true} />}
+      {isPopup && (
+        <Popup
+          result={result}
+          isLoading={isLoading}
+          fileContent={fileContent}
+        />
+      )}
     </div>
   );
 }

@@ -1,0 +1,305 @@
+Source file: /HOME/UBUNTU/DESKTOP/KLTN/FLASK-SERVER/STATIC/FILES
+Destination file: /HOME/UBUNTU/DESKTOP/KLTN/FLASK-SERVER/REPORTS
+========== PREPROCESSING ===========
+Destination folder found!!!
+>>>>>>>>> FILE LOG CREATED !!!
+>>>>>>>> Create TEMP folder successfully !!!
+============== START EVALUATE ================
+WARNING! This will remove:
+  - all stopped containers
+  - all networks not used by at least one container
+  - all dangling images
+  - all dangling build cache
+
+Are you sure you want to continue? [y/N] Deleted Containers:
+8ac9fe26d45a7e541740084f8bb7be2148d991d80f3e8691b91df2a67603cdcb
+
+Total reclaimed space: 2.218GB
+REMOVING ALL OUTPUT (IF TRUE)...
+PROCESSING WITH ANDROPY ... 
+[32m
+
+>>>> AndroPyTool -- STEP 1: Filtering apks
+[0m
+1 apks found. Processing...
+[32mTOTAL VALID APKS: 1[0m
+[31mTOTAL INVALID APKS: 0[0m
+[32m
+
+>>>> AndroPyTool -- STEP 2: Analysing with VirusTotal
+[0m
+[32mSUCCESS!![0m
+ All reports have been saved in the VT_ANALYSIS folder. APKS are in SAMPLES folder.
+[32m
+
+>>>> AndroPyTool -- STEP 3: Filtering BW and MW
+[0m
+[32m
+
+>>>> AndroPyTool -- STEP 4: Launching FlowDroid
+[0m
+[32m
+
+>>>> AndroPyTool -- STEP 5: Processing FlowDroid outputs
+[0m
+[32mSuccess!![0m
+[34mOutput folder: /apks/FlowDroid_processed/[0m
+[32m
+
+>>>> AndroPyTool -- STEP 6: Execute DroidBox
+[0m
+Killing current active emulators...
+
+##########################
+100.00% NEW APK: /apks/samples//MW/test.apk
+##########################
+
+Starting emulator 
+STARTING  EMULATOR IN NON GUI MODE...
+ADB DEVICE RUNNING 
+subprocess called
+Waiting until boot is completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot not completed
+Boot completed !
+Calling droidbox...
+[H[J ____                        __  ____
+/\  _`\              __    /\ \/\  _`\
+\ \ \/\ \  _ __  ___ /\_\   \_\ \ \ \L\ \   ___   __  _
+ \ \ \ \ \/\`'__\ __`\/\ \  /'_` \ \  _ <' / __`\/\ \/'\
+  \ \ \_\ \ \ \/\ \L\ \ \ \/\ \L\ \ \ \L\ \ \L\ \/>  </
+   \ \____/\ \_\ \____/\ \_\ \___,_\ \____/ \____//\_/\_\
+    \/___/  \/_/\/___/  \/_/\/__,_ /\/___/ \/___/ \//\/_/
+###################################
+MODIFIED VERSION OF MONKEYRUNNER.PY
+###################################
+Waiting for the device...
+Installing the application /apks/samples//MW/test.apk...
+Running the component net.hidroid.hisurfing/net.hidroid.hinet.ui.Main...
+Process in background
+Starting the activity net.hidroid.hinet.ui.Main...
+Interrupted
+Analysis has not been done.

@@ -5,17 +5,30 @@ import Image from "next/image";
 import React, { useRef, ChangeEvent, useState, useEffect } from "react";
 import axios from "axios";
 import { useAppDispatch } from "@/stores/store";
-import { popupAction, setIsLoading, setResult } from "@/stores/toggleSlice";
+import {
+  popupAction,
+  setPathFile,
+  setIsLoading,
+  setResult,
+  setFileContent,
+} from "@/stores/toggleSlice";
+import {
+  callBEToAnalysic,
+  extractFeature,
+  getLogTerminal,
+  uploadFileToBE,
+} from "@/api-client/upload_file";
 
 const Home: NextPageWithLayout = () => {
   const dispatch = useAppDispatch();
-  const [image, setImage] = useState<any>();
+  const [image, setImage] = useState<any>(null);
 
   const uploadFile = async (event: ChangeEvent<HTMLInputElement>) => {
     try {
       if (event.target.files && event.target.files[0]) {
         const image = event.target.files[0];
         setImage(image);
+
         console.log("image", image);
       }
     } catch (error) {
@@ -24,36 +37,79 @@ const Home: NextPageWithLayout = () => {
   };
 
   const submitFile = async () => {
-    // try {
     dispatch(setIsLoading(true));
     dispatch(popupAction());
-    const data = new FormData();
-    data.append("file", image);
-    const res = await axios.post(`/api/analysic_file`, data, {
-      timeout: 900000  // Thời gian chờ là 5 giây (5000 millisecond)
-    });
-    console.log(res);
-    if (res.status === 200) {
-      const { conclusion } = res.data;
-      if (conclusion) {
-        dispatch(setResult(conclusion));
+    // const data = new FormData();
+    // data.append("file", image);
+    // const res = await axios.post(`/api/analysic_file`, data);
+    // console.log("res:", res);
+    // const response = await fetch("/api/analysic_file", {
+    //   method: "POST",
+    //   body: data,
+    // });
+    // const response = await axios.post(
+    //   "http://127.0.0.1:5000/api/analysic_file",
+    //   data,
+    //   {
+    //     headers: {
+    //       "Content-Type": "multipart/form-data",
+    //     },
+    //   }
+    // );
+    if (image) {
+      const res1 = await uploadFileToBE(image);
+      console.log("res1:", res1);
+      const res2 = await extractFeature();
+      let logTerminal = null;
+      console.log("res2:", res2);
+      let flag = false;
+      while (!flag) {
+        logTerminal = await getLogTerminal();
+        console.log("logTerminal:", logTerminal.data.fileContent);
+        dispatch(setFileContent(logTerminal.data.fileContent));
+        if (
+          logTerminal.data.fileContent &&
+          logTerminal.data.fileContent.includes(
+            "============== FINISH EVALUATE ================"
+          )
+        ) {
+          flag = true;
+          const res3 = await callBEToAnalysic();
+          console.log("res3:", res3);
+        }
       }
+      // let timerID = setInterval(async function () {
+      //   logTerminal = await getLogTerminal();
+      //   console.log("logTerminal:", logTerminal.data.fileContent);
+      //   if (
+      //     logTerminal.data.fileContent &&
+      //     logTerminal.data.fileContent.includes(
+      //       "============== FINISH EVALUATE ================"
+      //     )
+      //   ) {
+      //     clearInterval(timerID);
+      //     const res3 = await callBEToAnalysic();
+      //     console.log("res3:", res3);
+      //   }
+      // }, 45000);
     }
+
     dispatch(setIsLoading(false));
-    // } catch (error) {
-    //   console.log("error: ", error);
-    // }
+
+    // dispatch(setPathFile(`${res.data}`));
+
+    // dispatch(setIsLoading(true));
+    // dispatch(popupAction());
+    // dispatch(setIsLoading(false));
   };
+  function delay(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 
   return (
     <div className="flex flex-col justify-items-start items-center w-full">
       <div className="flex flex-row my-4">
-        <Image
-          alt="Flowbite logo"
-          height="100"
-          src="https://flowbite.com/docs/images/logo.svg"
-          width="100"
-        />
+        <Image alt="Flowbite logo" height="100" src="/logo.svg" width="100" />
         <span className="self-center whitespace-nowrap pl-3 text-7xl font-semibold dark:text-white">
           AnalysicAPK
         </span>

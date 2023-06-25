@@ -8,7 +8,7 @@ const NavBar = () => {
 				<Image
 					alt="Flowbite logo"
 					height="32"
-					src="https://flowbite.com/docs/images/logo.svg"
+					src="/logo.svg"
 					width="32"
 				/>
 				<span className="self-center whitespace-nowrap pl-3 text-xl font-semibold dark:text-white">
@@ -21,7 +21,7 @@ const NavBar = () => {
 					label={
 						<Avatar
 							alt="User settings"
-							img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+							img="/profile-picture-5.jpg"
 							rounded
 						/>
 					}

@@ -7,7 +7,6 @@ import numpy as np
 from keras.models import load_model 
 import subprocess
 import shutil
-# from flask_socketio import SocketIO, emit
 from flask_cors import CORS, cross_origin
 import time
 from threading import Thread
@@ -15,11 +14,12 @@ from threading import Thread
 
 
 tf.keras.utils.get_custom_objects()['KerasLayer'] = hub.KerasLayer
+model = tf.keras.models.load_model('models/Keras_hub_large.h5')
 
 app=Flask(__name__)
 CORS(app)
 
-model = tf.keras.models.load_model('models/Keras_hub_large.h5')
+
 app.config['SECRET_KEY'] = 'supersecretkey'
 app.config['UPLOAD_FOLDER'] = 'static/files'
 
@@ -43,7 +43,7 @@ def upload_file():
 		return { "isCompleted": False, "conclusion": "Filename error" }
 
 	if file: 
-		fileName = file.filename.split('.')[0]
+		fileName =  ''.join(file.filename.split(".")[:-1])
 
 		global featureFile
 		featureFile = fileName + "-analysis.json"
@@ -54,8 +54,8 @@ def upload_file():
 
 @app.route('/api/run_extraction',  methods = ['GET'])
 def run_extraction():
-	# result = subprocess.run(['bash', os.path.join(app.root_path, 'AndroPyTool-Autorun', 'extraction.sh'), os.path.join(app.root_path,'static', 'files'), os.path.join(app.root_path,'reports') ])
-	# time.sleep(900)
+
+	# Run extraction
 	def run_command():
 		result = subprocess.run(['bash', os.path.join(app.root_path, 'AndroPyTool-Autorun', 'extraction.sh'), os.path.join(app.root_path,'static', 'files'), os.path.join(app.root_path,'reports') ])
 	t1 = Thread(target=run_command)
@@ -70,6 +70,7 @@ def analysic_result():
 	
 	feature_file_path = os.path.join(app.root_path, 'reports', 'Features_files', featureFile)
 	
+	# Use model to predict
 	feature_file = open(feature_file_path, "r").read()
 	x_train_BW = []
 	x_train_BW.append(feature_file)
@@ -88,7 +89,7 @@ def analysic_result():
 	shutil.rmtree(os.path.join(app.root_path, 'reports', 'VT_analysis'))
 	shutil.rmtree(os.path.join(app.root_path, 'reports', 'invalid_apks'))
 
-
+	print("Gia tri du doan la: %d" %(binary_predictions))
 	# Return JSON result
 	if binary_predictions == 1:
 		response = {
@@ -105,4 +106,4 @@ def analysic_result():
 
 if __name__ == '__main__':
     app.run(debug=True)
-	# socketio.run(app)
+
